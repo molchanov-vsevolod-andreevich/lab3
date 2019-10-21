@@ -7,5 +7,5 @@ public class AirportApp {
     JavaSparkContext sc = new JavaSparkContext(conf);
 
     JavaRDD<String> flightsInfo = sc.textFile("664600583_T_ONTIME_sample.csv");
-    
+
 }
