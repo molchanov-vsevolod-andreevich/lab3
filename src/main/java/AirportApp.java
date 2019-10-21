@@ -8,7 +8,8 @@ public class AirportApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> flightsInfo = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airportsInfo = sc.textFile("");
-        JavaRDD<String> splittedFlightsInfo = flightsInfo.flatMap(
+        JavaRDD<String> airportsInfo = sc.textFile("L_AIRPORT_ID.csv");
+        
+        JavaRDD<String> splittedFlightsInfo = flightsInfo.flatMap();
     }
 }
