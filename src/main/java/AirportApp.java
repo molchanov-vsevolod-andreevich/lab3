@@ -6,5 +6,6 @@ public class AirportApp {
     SparkConf conf = new SparkConf().setAppName("lab3");
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    JavaRDD<String> distFile = sc.textFile("");
+    JavaRDD<String> flightsInfo = sc.textFile("664600583_T_ONTIME_sample.csv");
+    
 }
