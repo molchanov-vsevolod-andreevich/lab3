@@ -6,5 +6,5 @@ public class AirportApp {
     SparkConf conf = new SparkConf().setAppName("lab3");
     JavaSparkContext sc = new JavaSparkContext(conf);
 
-    JavaRDD<String> distFile = sc.textFile("war-and-peace-1.txt");
+    JavaRDD<String> distFile = sc.textFile("");
 }
