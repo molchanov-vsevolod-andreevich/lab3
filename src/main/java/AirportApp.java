@@ -8,5 +8,7 @@ public class AirportApp {
 
     JavaRDD<String> flightsInfo = sc.textFile("664600583_T_ONTIME_sample.csv");
 
-    
+    public static void main(String[] args) {
+        initializeSpark
+    }
 }
