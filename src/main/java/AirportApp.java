@@ -18,6 +18,8 @@ public class AirportApp {
 //        JavaPairRDD<String, String>
 //        System.out.println(splittedAirportsRDD.collect());
         List<String> l = splittedAirportsRDD.collect();
-        
+        for (String elem : l) {
+            System.out.println(elem);
+        }
     }
 }
