@@ -19,7 +19,7 @@ public class AirportApp {
 
 //        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.substring(s.indexOf('\n')+1).replace("\"", "").replace(",", ";").split("\n")).iterator());
         JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> {
-            CSVRecord csvLine = CSVParser.parse(s, CSVFormat.RFC4180).getRecords().get(0);
+            CSVRecord csvLine = CSVParser.parse(s, CSVFormat.RFC4180).getHeaderNames();
             CSVParser.parse(s, CSVFormat.RFC4180).getRecords().iterator().forEachRemaining(r -> r.iterator())
         });
 //        JavaRDD<String> i = airportsRDD.flatMap(s -> s += "!").iterator();
