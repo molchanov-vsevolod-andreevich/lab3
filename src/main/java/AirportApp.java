@@ -7,9 +7,9 @@ public class AirportApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flightsInfo = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airportsInfo = sc.textFile("L_AIRPORT_ID.csv");
-        
+        JavaRDD<String> flightsRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
+        JavaRDD<String> airportsRDD = sc.textFile("L_AIRPORT_ID.csv");
+        airportsInfo
 
 //        JavaRDD<String> splittedFlightsInfo = flightsInfo.flatMap();
     }
