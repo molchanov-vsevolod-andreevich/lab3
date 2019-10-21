@@ -15,12 +15,13 @@ public class AirportApp {
         JavaRDD<String> airportsRDD = sc.textFile("L_AIRPORT_ID.csv");
 
 //        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.substring(s.indexOf('\n')+1).replace("\"", "").replace(",", ";").split("\n")).iterator());
-        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('\r')+1));
+//        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('\r')+1));
 //        JavaPairRDD<String, String>
 //        System.out.println(splittedAirportsRDD.collect());
-        List<String> l = splittedAirportsRDD.collect();
-        for (String elem : l) {
-            System.out.println(elem);
-        }
+//        List<String> l = splittedAirportsRDD.collect();
+//        for (String elem : l) {
+//            System.out.println(elem);
+//        }
+        System.out.println(airportsRDD.first());
     }
 }
