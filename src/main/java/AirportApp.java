@@ -22,6 +22,18 @@ public class AirportApp {
 //        for (String elem : l) {
 //            System.out.println(elem);
 //        }
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println(airportsRDD.first());
+        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
+        System.out.println();
     }
 }
