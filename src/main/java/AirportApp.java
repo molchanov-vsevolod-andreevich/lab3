@@ -8,4 +8,5 @@ public class AirportApp {
 
     JavaRDD<String> flightsInfo = sc.textFile("664600583_T_ONTIME_sample.csv");
 
+    
 }
