@@ -4,6 +4,7 @@ import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
 import java.util.Arrays;
+import java.util.List;
 
 public class AirportApp {
     public static void main(String[] args) {
@@ -16,6 +17,7 @@ public class AirportApp {
         JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.substring(s.indexOf('\n')+1).replace("\"", "").replace(",", ";").split("\n")).iterator());
 //        JavaPairRDD<String, String>
 //        System.out.println(splittedAirportsRDD.collect());
-        List<String> l
+        List<String> l = splittedAirportsRDD.collect();
+        
     }
 }
