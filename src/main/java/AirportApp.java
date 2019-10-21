@@ -1,4 +1,5 @@
 import org.apache.spark.SparkConf;
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
 
@@ -9,7 +10,7 @@ public class AirportApp {
 
         JavaRDD<String> flightsRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsRDD = sc.textFile("L_AIRPORT_ID.csv");
-        JavaRDD<String, String> airportsInfo = airportsRDD.collectAsMap();
+        JavaPairRDD<String, String> airportsInfo = airportsRDD.collectAsMap();
 
 //        JavaRDD<String> splittedFlightsInfo = flightsInfo.flatMap();
     }
