@@ -15,7 +15,7 @@ public class AirportApp {
         JavaRDD<String> airportsRDD = sc.textFile("L_AIRPORT_ID.csv");
 
 //        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.substring(s.indexOf('\n')+1).replace("\"", "").replace(",", ";").split("\n")).iterator());
-//        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.split(",[\"]")).iterator());
+        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.split(",[\"]")).iterator());
 //        JavaPairRDD<String, String>
 //        System.out.println(splittedAirportsRDD.collect());
 //        List<String> l = splittedAirportsRDD.collect();
@@ -28,7 +28,7 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        List<String> l = airportsRDD.collect();
+        List<String> l = aplittedAirportsRDD.collect();
         for (String elem : l) {
             System.out.println(elem);
         }
