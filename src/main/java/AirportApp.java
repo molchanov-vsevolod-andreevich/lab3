@@ -28,7 +28,7 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        List<String> l = aplittedAirportsRDD.collect();
+        List<String> l = splittedAirportsRDD.collect();
         for (String elem : l) {
             System.out.println(elem);
         }
