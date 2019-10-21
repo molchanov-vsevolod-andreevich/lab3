@@ -15,5 +15,6 @@ public class AirportApp {
 
         JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> Arrays.stream(s.split(",")).iterator());
 //        JavaPairRDD<String, String>
+        System.out.println();
     }
 }
