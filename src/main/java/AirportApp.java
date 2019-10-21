@@ -28,7 +28,10 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        System.out.println(airportsRDD.first());
+        List<String> l = airportsRDD.collect();
+        for (String elem : l) {
+            System.out.println(elem);
+        }
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
