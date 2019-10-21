@@ -1,5 +1,5 @@
 HOME = /Users/vsevolodmolchanov
-PROJECT = $(HOME)/Documents/Study/Coding/University/Parallel/lab2
+PROJECT = $(HOME)/Documents/Study/Coding/University/Parallel/lab3
 H_DATA = $(HOME)/hdata
 RESOURCES = $(PROJECT)/src/main/resources
 
