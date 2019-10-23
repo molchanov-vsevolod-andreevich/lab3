@@ -1,3 +1,5 @@
+import org.apache.commons.csv.CSVParser;
+import org.apache.commons.csv.CSVFormat;
 import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
@@ -14,8 +16,8 @@ public class AirportApp {
         JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
 
-        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('n')+1));
-//        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> CSVParser.parse(s, CSVFormat.RFC4180).getHeaderNames().iterator());
+//        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('n')+1));
+        JavaRDD<String> splittedAirportsRDD = airports.flatMap(s -> CSVParser.parse(s, CSVFormat.RFC4180).getHeaderNames().iterator());
 //        JavaRDD<String> i = airportsRDD.flatMap(s -> s += "!").iterator();
 //        JavaPairRDD<String, String>
 //        System.out.println(splittedAirportsRDD.collect());
