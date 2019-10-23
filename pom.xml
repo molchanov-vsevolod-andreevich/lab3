@@ -31,7 +31,7 @@
         <dependency>
             <groupId>com.google.code.findbugs</groupId>
             <artifactId>jsr305</artifactId>
-            <version></version>
+            <version>1.3.9</version>
         </dependency>
     </dependencies>
     <build>
