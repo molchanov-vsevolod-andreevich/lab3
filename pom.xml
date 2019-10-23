@@ -30,7 +30,7 @@
         </dependency>
         <dependency>
             <groupId>com.google.code.findbugs.jsr305</groupId>
-            <artifactId>guava</artifactId>
+            <artifactId></artifactId>
             <version>16.0.1</version>
         </dependency>
     </dependencies>
