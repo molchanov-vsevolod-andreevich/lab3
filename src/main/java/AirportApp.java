@@ -14,8 +14,8 @@ public class AirportApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flightsRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airportsRDD = sc.textFile("L_AIRPORT_ID.csv");
+        JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
+        JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
 
         JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('n')+1));
 //        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> CSVParser.parse(s, CSVFormat.RFC4180).getHeaderNames().iterator());
