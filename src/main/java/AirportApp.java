@@ -17,7 +17,7 @@ public class AirportApp {
         JavaRDD<String> flightsRDD = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsRDD = sc.textFile("L_AIRPORT_ID.csv");
 
-        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('\n')+1));
+        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('n')+1));
 //        JavaRDD<String> splittedAirportsRDD = airportsRDD.flatMap(s -> CSVParser.parse(s, CSVFormat.RFC4180).getHeaderNames().iterator());
 //        JavaRDD<String> i = airportsRDD.flatMap(s -> s += "!").iterator();
 //        JavaPairRDD<String, String>
