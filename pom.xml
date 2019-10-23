@@ -29,7 +29,7 @@
             <version>16.0.1</version>
         </dependency>
         <dependency>
-            <groupId>com.google..</groupId>
+            <groupId>com.google.</groupId>
             <artifactId>guava</artifactId>
             <version>16.0.1</version>
         </dependency>
