@@ -27,7 +27,7 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        res.foreach(v -> System.out.println(v._1()._1() + " : " + v._1()._2() + " => " + v._2()));
+//        res.foreach(v -> System.out.println(v._1()._1() + " : " + v._1()._2() + " => " + v._2()));
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
