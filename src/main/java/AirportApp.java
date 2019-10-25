@@ -32,14 +32,9 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-//        JavaPairRDD<String, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
-//        Map<String, String> m = airportsPairsDelaysInfo.collectAsMap();
-//        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1() + " : " + v._2()));
-        Map<Tuple2<String, String>, DelaysInfo> m = res.collectAsMap();
-        m.forEach((k, v) -> System.out.println(k + " => " + v));
-//        res.foreach(rdd -> {
-//            System.out.println(rdd);
-//        });
+//        Map<Tuple2<String, String>, DelaysInfo> m = res.collectAsMap();
+//        m.forEach((k, v) -> System.out.println(k + " => " + v));
+        
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
