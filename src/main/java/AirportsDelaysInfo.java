@@ -14,9 +14,9 @@ public class AirportsDelaysInfo implements Serializable {
 
     public AirportsDelaysInfo(Tuple2<String, String> airportsPair, DelaysInfo delays, Map<String, String> airportsCodesToNames) {
         originAirportId = airportsPair._1();
-        originAirportName = airportsCodesToNames(originAirportId);
-        
+        originAirportName = airportsCodesToNames.get(originAirportId);
+
         destAirportId = airportsPair._2();
-        destAirportName
+        destAirportName = airportsCodesToNames.get(destAirportId);
     }
 }
