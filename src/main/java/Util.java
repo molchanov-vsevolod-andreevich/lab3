@@ -7,7 +7,7 @@ public abstract class Util {
         return csvFile.filter(line -> !line.equals(header));
     }
 
-    public static final Tuple2<String, String> getAirportsPair(String s) {
-
+    public static final Tuple2 getAirportsPair(String s) {
+        
     }
 }
