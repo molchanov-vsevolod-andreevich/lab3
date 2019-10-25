@@ -34,6 +34,7 @@ public abstract class Util {
 
         JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
             String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
+            System.out.println(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX] + " : " + records[Common.CSV_DEST_AIRPORT_ID_INDEX] + " => " + records[Common.CSV_DELAY_INDEX]);
             return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
         });
 
