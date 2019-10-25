@@ -29,9 +29,7 @@ copy_files:
 
 start_project:
 	@echo "\n\n*****************STARTING THE PROJECT*****************\n\n"
-	export HADOOP_CLASSPATH=/Users/vsevolodmolchanov/Documents/Study/Coding/University/Parallel/lab2/target/hadoop-examples-1.0-SNAPSHOT.jar:/Library/commons-csv-1.7/commons-csv-1.7-sources.jar:/Library/commons-csv-1.7/commons-csv-1.7.jar
-	hadoop AirportApp L_AIRPORT_ID.csv 664600583_T_ONTIME_sample.csv output
-	hadoop fs -copyToLocal output $(PROJECT)
+	
 
 restart_project: delete_output start_project
 
