@@ -35,7 +35,7 @@ public class AirportApp {
 //        Map<Tuple2<String, String>, DelaysInfo> m = res.collectAsMap();
 //        m.forEach((k, v) -> System.out.println(k + " => " + v));
         for (AirportsDelaysInfo info : airportsDelaysInfo.collect()) {
-            
+            System.out.println(info);
         }
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
