@@ -6,4 +6,5 @@ public abstract class Common {
     public static final int CSV_AIRPORT_NAME_INDEX = 1;
     public static final int CSV_ORIGIN_AIRPORT_ID_INDEX = 11;
     public static final int CSV_DEST_AIRPORT_ID_INDEX = 14;
+    public static final int CSV_DELAY_INDEX = 18;
 }
