@@ -1,4 +1,7 @@
+import scala.Tuple2;
+
 import java.io.Serializable;
+import java.util.Map;
 
 public class AirportsDelaysInfo implements Serializable {
     private String originAirportId;
@@ -9,7 +12,11 @@ public class AirportsDelaysInfo implements Serializable {
 
     private DelaysInfo delays;
 
-    public AirportsDelaysInfo(Tuple2<String, String>, DelaysInfo) {
-
+    public AirportsDelaysInfo(Tuple2<String, String> airportsPair, DelaysInfo delays, Map<String, String> airportsCodesToNames) {
+        originAirportId = airportsPair._1();
+        originAirportName = airportsCodesToNames(originAirportId);
+        
+        destAirportId = airportsPair._2();
+        destAirportName
     }
 }

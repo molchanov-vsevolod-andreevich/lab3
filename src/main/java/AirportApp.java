@@ -24,7 +24,7 @@ public class AirportApp {
 //        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator());
 
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportsCodesToNames);
-        JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map((k, v) -> new AirportsDelaysInfo(k, v, airportsBroadcasted.value()));
+        JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info -> new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
 
         System.out.println();
         System.out.println();
