@@ -1,3 +1,4 @@
+import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
 
@@ -15,6 +16,6 @@ public abstract class Util {
 
     public static final Map<String, String> parseAirports(JavaRDD<String> airportsCSV) {
         JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airportsCSV);
-        
+        JavaPairRDD<String, String> airportsPairs = airportsWithoutHeader.
     }
 }
