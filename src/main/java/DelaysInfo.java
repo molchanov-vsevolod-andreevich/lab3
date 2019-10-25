@@ -33,11 +33,15 @@ public class DelaysInfo implements Serializable {
                 }
             }
         }
-        
+
     }
 
     @Override
     public String toString() {
-        return "maximal delay: " + maxDelay + "; percentage of delayed and canceled flights: " + delayAndCancelPercentage + "%";
+        if (delayAndCancelPercentage == 0f) {
+            return "no delays or cancels";
+        } else {
+            return "maximal delay: " + maxDelay + "; percentage of delayed and canceled flights: " + delayAndCancelPercentage + "%";
+        }
     }
 }
