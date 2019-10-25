@@ -28,7 +28,9 @@ public class AirportApp {
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         JavaPairRDD<String, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
-        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1() + " : " + v._2()));
+        Map<String, String> m = airportsPairsDelaysInfo.collectAsMap();
+//        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1() + " : " + v._2()));
+        m.forEach((k, v) -> System.out.println(k + " : " + v));
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
