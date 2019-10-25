@@ -22,7 +22,7 @@ public class AirportApp {
         JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
 //        JavaPairRDD<Tuple2<String, String>, String> res = airportsPairsDelaysInfo.reduceByKey((a, b) -> a + " " + b);
 //        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator());
-        JavaPairRDD<Tuple2<String, String>, String> res = airportsPairsDelaysInfo.sortByKey(new TupleComparator(), true);
+        JavaPairRDD<Tuple2<String, String>,>
 
         System.out.println();
         System.out.println();
