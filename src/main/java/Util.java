@@ -29,6 +29,6 @@ public abstract class Util {
 
     public static final JavaPairRDD<Tuple2<String, String>, String> parseFlights(JavaRDD<String> flightsCSV) {
         JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
-        return 
+        return flightsWithoutHeader.mapToPair(s -> )
     }
 }
