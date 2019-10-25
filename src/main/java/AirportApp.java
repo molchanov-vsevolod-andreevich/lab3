@@ -19,7 +19,6 @@ public class AirportApp {
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
         JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
         JavaPairRDD<Tuple2<String, String>, String> res = airportsPairsDelaysInfo.combineByKey((a, b) -> {
-            System.out.println(a);
             return a + b;
         });
 
