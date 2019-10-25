@@ -42,7 +42,7 @@ public class AirportApp {
         System.out.println();
     }
 
-    class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
+    static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
         @Override
         public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
             int res = o1._1().compareTo(o2._1());
