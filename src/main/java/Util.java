@@ -31,7 +31,7 @@ public abstract class Util {
         JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
         JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
             String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
-            return new Tuple2<>(new Tuple2<>())
+            return new Tuple2<>(new Tuple2<>(records[]))
         });
     }
 }
