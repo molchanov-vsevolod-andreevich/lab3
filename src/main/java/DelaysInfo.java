@@ -21,16 +21,15 @@ public class DelaysInfo implements Serializable {
         while (it.hasNext()) {
             numOfFlights++;
             String nextDelay = it.next().toString();
-            if (nextDelay.isEmpty() || nextDelay.equals(0.00))
-            time += nextDelay;
-            if (nextDelay != 0f) {
-                if (nextDelay > max) {
-                    max = nextDelay;
-                }
-                if (nextDelay < min) {
-                    min = nextDelay;
+            if (nextDelay.isEmpty() || nextDelay.equals("0.00")) {
+                numOfDelaysAndCancels++;
+            } else {
+                float delay = Float.parseFloat(nextDelay);
+                if (delay > max) {
+                    max = delay;
                 }
             }
+            
         }
     }
 
