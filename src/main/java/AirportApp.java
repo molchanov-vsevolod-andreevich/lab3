@@ -21,7 +21,7 @@ public class AirportApp {
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
         JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
 //        JavaPairRDD<Tuple2<String, String>, String> res = airportsPairsDelaysInfo.reduceByKey((a, b) -> a + " " + b);
-        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator(), true);
+        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey();
 
         System.out.println();
         System.out.println();
@@ -32,12 +32,11 @@ public class AirportApp {
 //        JavaPairRDD<String, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
 //        Map<String, String> m = airportsPairsDelaysInfo.collectAsMap();
 //        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1() + " : " + v._2()));
-//        Map<Tuple2<String, String>, Iterable<String>> m = res.collectAsMap();
+        Map<Tuple2<String, String>, Iterable<String>> m = res.collectAsMap();
 //        m.forEach((k, v) -> System.out.println(k + " => " + v));
 //        res.foreach(rdd -> {
 //            System.out.println(rdd);
 //        });
-        System.out.println(airportsPairsDelaysInfo);
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
