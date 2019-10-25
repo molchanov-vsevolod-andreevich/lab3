@@ -5,4 +5,6 @@ public abstract class Util {
         String header = csvFile.first();
         return csvFile.filter(line -> !line.equals(header));
     }
+
+    public static final 
 }
