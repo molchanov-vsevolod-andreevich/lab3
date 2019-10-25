@@ -1,4 +1,5 @@
 import java.io.Serializable;
+import java.util.Iterator;
 
 public class DelaysInfo implements Serializable {
     private float maxDelay;
@@ -14,7 +15,20 @@ public class DelaysInfo implements Serializable {
 
     public DelaysInfo(Iterable<String> delays) {
         float max = Float.MIN_VALUE;
-        
+        Iterator<String> it = delays.iterator();
+        while (it.hasNext()) {
+            float nextDelay = Float.parseFloat(delays.next().toString());
+            count++;
+            time += nextDelay;
+            if (nextDelay != 0f) {
+                if (nextDelay > max) {
+                    max = nextDelay;
+                }
+                if (nextDelay < min) {
+                    min = nextDelay;
+                }
+            }
+        }
     }
 
     @Override
