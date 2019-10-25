@@ -35,7 +35,7 @@ public class AirportApp {
 //        Map<Tuple2<String, String>, Iterable<String>> m = res.collectAsMap();
 //        m.forEach((k, v) -> System.out.println(k + " => " + v));
         res.foreach(rdd -> {
-            
+            System.out.println();
         });
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
