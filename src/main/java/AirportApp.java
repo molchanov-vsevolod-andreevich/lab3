@@ -17,7 +17,7 @@ public class AirportApp {
         JavaRDD<String> airportsCSV = sc.textFile("L_AIRPORT_ID.csv");
 
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
-        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
+//        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
 //        JavaPairRDD<Tuple2<String, String>, String> res = airportsPairsDelaysInfo.reduceByKey((a, b) -> a + b);
 
 
@@ -27,7 +27,8 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1()._1() + " : " + v._1()._2() + " => " + v._2()));
+        JavaPairRDD<String, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
+        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1() + " : " + v._2()));
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();

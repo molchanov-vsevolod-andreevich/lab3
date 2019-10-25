@@ -29,14 +29,24 @@ public abstract class Util {
         return airportsPairs.collectAsMap();
     }
 
-    public static final JavaPairRDD<Tuple2<String, String>, String> parseFlights(JavaRDD<String> flightsCSV) {
-        JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
+//    public static final JavaPairRDD<Tuple2<String, String>, String> parseFlights(JavaRDD<String> flightsCSV) {
+//        JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
+//
+//        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
+//            String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
+//            return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
+//        });
+//
+//        return airportsPairsDelayInfo;
+//    }
+public static final JavaPairRDD<String, String> parseFlights(JavaRDD<String> flightsCSV) {
+    JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
 
-        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
-            String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
-            return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
-        });
+    JavaPairRDD<String, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
+        String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
+        return new Tuple2<>(records[Common.CSV_DEST_AIRPORT_ID_INDEX], records[Common.CSV_DELAY_INDEX]);
+    });
 
-        return airportsPairsDelayInfo;
-    }
+    return airportsPairsDelayInfo;
+}
 }
