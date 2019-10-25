@@ -2,6 +2,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import scala.Tuple2;
 
 import java.util.Arrays;
 import java.util.List;
@@ -16,7 +17,7 @@ public class AirportApp {
         JavaRDD<String> airportsCSV = sc.textFile("L_AIRPORT_ID.csv");
 
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
-        JavaPairRDD<Tuple2<>>
+        JavaPairRDD<Tuple2<String, String>, String> delaysInfo = Util.parseFlights(flightsCSV);
 
         System.out.println();
         System.out.println();

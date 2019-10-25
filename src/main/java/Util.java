@@ -26,4 +26,8 @@ public abstract class Util {
         });
         return airportsPairs.collectAsMap();
     }
+
+    public static final JavaPairRDD<Tuple2<String, String>, String> parseFlights(JavaRDD<String> flightsCSV) {
+        
+    }
 }
