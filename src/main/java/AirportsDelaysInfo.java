@@ -40,6 +40,6 @@ public class AirportsDelaysInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "FROM " + originAirportName + " (code " + originAirportID + ") \nTO " + destAirportName + " (code " + destAirportID + ")\n\t" + delays;
+        return "FROM: " + originAirportName + " (code " + originAirportID + ") \nTO: " + destAirportName + " (code " + destAirportID + ")\n\t" + delays;
     }
 }
