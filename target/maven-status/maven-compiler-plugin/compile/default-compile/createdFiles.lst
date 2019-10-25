@@ -1,6 +1,6 @@
-AirportApp$TupleComparator.class
 Common.class
 AirportApp.class
 Util.class
 DelaysInfo.class
 AirportsDelaysInfo.class
+Util$TupleComparator.class
