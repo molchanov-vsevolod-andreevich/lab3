@@ -25,8 +25,9 @@ public class AirportApp {
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportsCodesToNames);
         JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info -> new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
 
-        for (AirportsDelaysInfo info : airportsDelaysInfo.collect()) {
-            System.out.println(info);
-        }
+//        for (AirportsDelaysInfo info : airportsDelaysInfo.collect()) {
+//            System.out.println(info);
+//        }
+        airportsDelaysInfo.saveAsTextFile("result.txt");
     }
 }
