@@ -14,6 +14,7 @@ public class DelaysInfo implements Serializable {
 
     public DelaysInfo(Iterable<String> delays) {
         float max = Float.MIN_VALUE;
+        
     }
 
     @Override
