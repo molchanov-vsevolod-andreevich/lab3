@@ -42,12 +42,14 @@ public class AirportApp {
         System.out.println();
     }
 
-    class TupleComparator implements Comparator<Tuple2<Integer, Integer>>, Serializable {
+    class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
         @Override
-        public int compare(Tuple2<Integer, Integer> o1, Tuple2<Integer, Integer> o2) {
-            if (o1._1() == o2._1())
-                return o1._2() - o2._2();
-            return o1._1() - o2._1();
+        public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
+            int res = o1._1().compareTo(o2._1());
+            if (res == 0) {
+                res = o1._2().compareTo(o2._2());
+            }
+            return res;
         }
     }
 }
