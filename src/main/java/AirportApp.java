@@ -29,7 +29,7 @@ public class AirportApp {
         System.out.println();
         System.out.println();
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        for ()
+        for (Tuple2<Tuple2<String, String>>String> : )
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
