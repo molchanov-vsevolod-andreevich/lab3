@@ -3,4 +3,4 @@ AirportApp.class
 Util.class
 DelaysInfo.class
 AirportsDelaysInfo.class
-Util$TupleComparator.class
+AirportsComparator.class
