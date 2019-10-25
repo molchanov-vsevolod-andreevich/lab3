@@ -14,7 +14,7 @@ public class AirportApp {
         JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
         JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airports);
-        airports
+        Map<>
 
         System.out.println();
         System.out.println();
