@@ -14,8 +14,9 @@ public class DelaysInfo implements Serializable {
     }
 
     public DelaysInfo(Iterable<String> delays) {
-        float max = Float.MIN_VALUE;
         Iterator<String> it = delays.iterator();
+        float max = Float.MIN_VALUE;
+        float count = 0f;
         while (it.hasNext()) {
             float nextDelay = Float.parseFloat(delays.next().toString());
             count++;
