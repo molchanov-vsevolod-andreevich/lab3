@@ -14,14 +14,14 @@ public abstract class Util {
 
     }
 
-    public static final parseCSVLineWithDelimiter(String s, String delimiter) {
-
+    public static final String[] parseCSVLineWithDelimiter(String s, String delimiter) {
+        s.split(delimiter, )
     }
 
     public static final Map<String, String> parseAirports(JavaRDD<String> airportsCSV) {
         JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airportsCSV);
         JavaPairRDD<String, String> airportsPairs = airportsWithoutHeader.mapToPair(s -> {
-            Util.parseCSVLineWithDelimiter(s, Common.AIRPORTS_DELIMITER);
+            String[] records = Util.parseCSVLineWithDelimiter(s, Common.AIRPORTS_DELIMITER);
         });
     }
 }
