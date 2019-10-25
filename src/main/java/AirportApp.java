@@ -5,10 +5,6 @@ import org.apache.spark.api.java.JavaSparkContext;
 import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
-import java.io.Serializable;
-import java.util.Arrays;
-import java.util.Comparator;
-import java.util.List;
 import java.util.Map;
 
 public class AirportApp {
@@ -25,9 +21,6 @@ public class AirportApp {
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportsCodesToNames);
         JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info -> new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
 
-//        for (AirportsDelaysInfo info : airportsDelaysInfo.collect()) {
-//            System.out.println(info);
-//        }
         airportsDelaysInfo.saveAsTextFile("output");
     }
 }
