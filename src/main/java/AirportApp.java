@@ -29,7 +29,15 @@ public class AirportApp {
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
 //        res.foreach(v -> System.out.println(v._1()._1() + " : " + v._1()._2() + " => " + v._2()));
 //        airportsPairsDelaysInfo.foreach(v -> System.out.println(v));
-        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
+        JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
+
+        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
+            String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
+            System.out.println(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX] + " : " + records[Common.CSV_DEST_AIRPORT_ID_INDEX] + " => " + records[Common.CSV_DELAY_INDEX]);
+            return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
+        });
+
+//        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
         System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
         System.out.println();
         System.out.println();
