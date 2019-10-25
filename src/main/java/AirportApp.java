@@ -28,6 +28,6 @@ public class AirportApp {
 //        for (AirportsDelaysInfo info : airportsDelaysInfo.collect()) {
 //            System.out.println(info);
 //        }
-        airportsDelaysInfo.saveAsTextFile("result.txt");
+        airportsDelaysInfo.saveAsTextFile("output");
     }
 }
