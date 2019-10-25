@@ -53,7 +53,7 @@ public class DelaysInfo implements Serializable {
         if (delayAndCancelPercentage == 0f) {
             return "no delays or cancels";
         } else {
-            return "maximum delay: " + maxDelay + "; percentage of delayed and canceled flights: " + delayAndCancelPercentage + "%";
+            return "maximum delay: " + maxDelay + "\n\tpercentage of delayed and canceled flights: " + delayAndCancelPercentage + "%";
         }
     }
 }
