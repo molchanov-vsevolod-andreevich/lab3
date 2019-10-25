@@ -2,7 +2,7 @@ import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
 
 public abstract class Util {
-    public static final JavaRDD<String[]> parseCSVWithHeaderAndDelimiter(JavaRDD<String> csvFile, String delimiter) {
+    public static final JavaRDD<String> removeHeader(JavaRDD<String> csvFile, String delimiter) {
         String header = csvFile.first();
         JavaRDD<String> csvWithoutHeader = csvFile.filter(line -> !line.equals(header));
 
