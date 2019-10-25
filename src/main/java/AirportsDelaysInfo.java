@@ -18,5 +18,12 @@ public class AirportsDelaysInfo implements Serializable {
 
         destAirportId = airportsPair._2();
         destAirportName = airportsCodesToNames.get(destAirportId);
+
+        this.delays = delays;
+    }
+
+    @Override
+    public String toString() {
+        return 
     }
 }
