@@ -13,7 +13,7 @@ public class AirportApp {
 
         JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
-        JavaRDD<String[]> parsedAirports = Util.parseCSVWithHeaderAndDelimiter(airports, "\",");
+        JavaRDD<String[]> parsedAirports = Util.parseCSVWithHeaderAndDelimiter(airports, Common.AIRPORTS_DELIMITER);
 //        JavaRDD<String> splittedAirportsRDD = Util.parseCSVWithHeaderAndDelimiter(airports);
 //        JavaPairRDD<String, String> airportsCodesToNames = airports.mapToPair(s -> Util.getAirportsPair(s));
 //        JavaRDD<String> splittedAirportsRDD = airportsRDD.map(s -> s.substring(s.indexOf('n')+1));
