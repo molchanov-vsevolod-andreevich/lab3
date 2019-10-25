@@ -26,33 +26,8 @@ public class AirportApp {
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportsCodesToNames);
         JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info -> new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
 
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-//        Map<Tuple2<String, String>, DelaysInfo> m = res.collectAsMap();
-//        m.forEach((k, v) -> System.out.println(k + " => " + v));
         for (AirportsDelaysInfo info : airportsDelaysInfo.collect()) {
             System.out.println(info);
-        }
-        System.out.println("XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX");
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-        System.out.println();
-    }
-
-    static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
-        @Override
-        public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
-            int res = o1._1().compareTo(o2._1());
-            if (res == 0) {
-                res = o1._2().compareTo(o2._2());
-            }
-            return res;
         }
     }
 }
