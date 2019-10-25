@@ -2,6 +2,7 @@ import org.apache.spark.SparkConf;
 import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import org.apache.spark.api.java.JavaSparkContext;
+import org.apache.spark.broadcast.Broadcast;
 import scala.Tuple2;
 
 import java.io.Serializable;
@@ -22,7 +23,7 @@ public class AirportApp {
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
 //        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator());
 
-        final Broadcast<Map<Stri)ng, Ai)rportData>> ai)rportsBroadcasted = sc.broadcast(stringAirportDataMap);
+        final Broadcast<Map<String, AirportData>> airportsBroadcasted = sc.broadcast(stringAirportDataMap);
 
         System.out.println();
         System.out.println();
