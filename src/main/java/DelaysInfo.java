@@ -13,6 +13,11 @@ public class DelaysInfo implements Serializable {
     }
 
     public DelaysInfo(String delaysInString) {
-        
+
+    }
+
+    @Override
+    public String toString() {
+        return "max delay: " + maxDelay + " " + delayAndCancelPercentage + "%";
     }
 }
