@@ -15,7 +15,7 @@ public abstract class Util {
         for (String record : records) {
             record.replaceAll("\"", "");
         }
-        for ()
+        for (int i = 0; i < )
         return records;
     }
 
