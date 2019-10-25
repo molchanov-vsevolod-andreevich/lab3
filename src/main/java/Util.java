@@ -37,6 +37,6 @@ public abstract class Util {
             return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
         });
 
-        
+        return airportsPairsDelayInfo;
     }
 }
