@@ -18,6 +18,6 @@ public class DelaysInfo implements Serializable {
 
     @Override
     public String toString() {
-        return "maximal delay: " + maxDelay + " " + delayAndCancelPercentage + "%";
+        return "maximal delay: " + maxDelay + " percentage of delayed and canceled " + delayAndCancelPercentage + "%";
     }
 }
