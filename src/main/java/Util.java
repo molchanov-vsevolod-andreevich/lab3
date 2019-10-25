@@ -13,7 +13,7 @@ public abstract class Util {
     public static final String[] parseCSVLineWithDelimiter(String line, String delimiter) {
         String[] records = line.split(delimiter);
         for (String record : records) {
-            record = record.replaceAll("\"", "");
+            record.replaceAll("\"", "");
         }
         return records;
     }
