@@ -37,29 +37,19 @@ public abstract class Util {
         JavaPairRDD<Tuple2<String, String>, Iterable<String>> airportsPairsDelaysInfo = flightsWithoutHeader.mapToPair(line -> {
             String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
             return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
-        }).groupByKey().sortByKey(new TupleComparator();
+        }).groupByKey().sortByKey(new TupleComparator());
 
         return airportsPairsDelaysInfo.mapValues(delays -> new DelaysInfo(delays));
     }
 
-//    public static final JavaPairRDD<Tuple2<String, String>, String> parseFlights(JavaRDD<String> flightsCSV) {
-//        JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
-//
-//        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelayInfo = flightsWithoutHeader.mapToPair(line -> {
-//            String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
-//            return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
-//        });
-//
-//        return airportsPairsDelayInfo;
-//    }
-static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
-    @Override
-    public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
-        int res = o1._1().compareTo(o2._1());
-        if (res == 0) {
-            res = o1._2().compareTo(o2._2());
+    static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
+        @Override
+        public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
+            int res = o1._1().compareTo(o2._1());
+            if (res == 0) {
+                res = o1._2().compareTo(o2._2());
+            }
+            return res;
         }
-        return res;
     }
-}
 }
