@@ -25,7 +25,7 @@ public abstract class Util {
     public static final Map<String, String> parseAirports(JavaRDD<String> airportsCSV) {
         JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airportsCSV);
         JavaPairRDD<String, String> airportsPairs = airportsWithoutHeader.mapToPair(s -> {
-            String[] records = Util.parseCSVLineWithDelimiter(s, Common.AIRPORTS_DELIMITER);
+            String[]  = Util.parseCSVLineWithDelimiter(s, Common.AIRPORTS_DELIMITER);
             return new Tuple2<>(records[0], records[1]);
         });
     }
