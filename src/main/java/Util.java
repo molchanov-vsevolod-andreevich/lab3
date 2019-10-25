@@ -37,7 +37,7 @@ public abstract class Util {
             return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
         }).groupByKey();
 
-        return airportsPairsDelaysInfo.map()
+        return airportsPairsDelaysInfo.mapToPair((k, v) -> );
     }
 
 //    public static final JavaPairRDD<Tuple2<String, String>, String> parseFlights(JavaRDD<String> flightsCSV) {
