@@ -18,11 +18,11 @@ public class AirportApp {
         JavaRDD<String> flightsCSV = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsCSV = sc.textFile("L_AIRPORT_ID.csv");
 
-        Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
-//        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
-//        JavaPairRDD<Tuple2<String, String>, String> res = airportsPairsDelaysInfo.reduceByKey((a, b) -> a + " " + b);
-//        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator());
         JavaPairRDD<Tuple2<String, String>, DelaysInfo> res = Util.parseFlights(flightsCSV);
+        Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
+//        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator());
+
+        
 
         System.out.println();
         System.out.println();
