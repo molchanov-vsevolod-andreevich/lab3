@@ -14,8 +14,11 @@ public abstract class Util {
 
     }
 
-    public static final String[] parseCSVLineWithDelimiter(String s, String delimiter) {
-        s.split(delimiter, )
+    public static final String[] parseCSVLineWithDelimiter(String line, String delimiter) {
+        String[] records = line.split(delimiter);
+        for (String record : records) {
+            record.replace()
+        }
     }
 
     public static final Map<String, String> parseAirports(JavaRDD<String> airportsCSV) {
