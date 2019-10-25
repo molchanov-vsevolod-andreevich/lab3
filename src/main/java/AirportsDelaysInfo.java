@@ -4,22 +4,38 @@ import java.io.Serializable;
 import java.util.Map;
 
 public class AirportsDelaysInfo implements Serializable {
-    private String originAirportId;
+    private String originAirportID;
     private String originAirportName;
 
-    private String destAirportId;
+    private String destAirportID;
     private String destAirportName;
 
     private DelaysInfo delays;
 
     public AirportsDelaysInfo(Tuple2<String, String> airportsPair, DelaysInfo delays, Map<String, String> airportsCodesToNames) {
-        originAirportId = airportsPair._1();
-        originAirportName = airportsCodesToNames.get(originAirportId);
+        originAirportID = airportsPair._1();
+        originAirportName = airportsCodesToNames.get(originAirportID);
 
-        destAirportId = airportsPair._2();
-        destAirportName = airportsCodesToNames.get(destAirportId);
+        destAirportID = airportsPair._2();
+        destAirportName = airportsCodesToNames.get(destAirportID);
 
         this.delays = delays;
+    }
+
+    public String getOriginAirportID() {
+        return originAirportID;
+    }
+
+    public String getOriginAirportName() {
+        return originAirportName;
+    }
+
+    public String getDestAirportID() {
+        return destAirportID;
+    }
+
+    public String getDestAirportName() {
+        return destAirportName;
     }
 
     @Override
