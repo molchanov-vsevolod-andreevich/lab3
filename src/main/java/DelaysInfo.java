@@ -13,11 +13,11 @@ public class DelaysInfo implements Serializable {
     }
 
     public DelaysInfo(String delaysInString) {
-
+        
     }
 
     @Override
     public String toString() {
-        return "maximal delay: " + maxDelay + " percentage of delayed and canceled " + delayAndCancelPercentage + "%";
+        return "maximal delay: " + maxDelay + "; percentage of delayed and canceled flights: " + delayAndCancelPercentage + "%";
     }
 }
