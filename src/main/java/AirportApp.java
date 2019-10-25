@@ -17,7 +17,7 @@ public class AirportApp {
         JavaRDD<String> airportsCSV = sc.textFile("L_AIRPORT_ID.csv");
 
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
-        JavaPairRDD<Tuple2<String, String>, String> delaysInfo = Util.parseFlights(flightsCSV);
+        JavaPairRDD<Tuple2<String, String>, String> airportsPairsDelaysInfo = Util.parseFlights(flightsCSV);
 
         System.out.println();
         System.out.println();
