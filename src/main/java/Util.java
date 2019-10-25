@@ -2,8 +2,6 @@ import org.apache.spark.api.java.JavaPairRDD;
 import org.apache.spark.api.java.JavaRDD;
 import scala.Tuple2;
 
-import java.io.Serializable;
-import java.util.Comparator;
 import java.util.Map;
 
 public abstract class Util {
@@ -41,15 +39,4 @@ public abstract class Util {
 
         return airportsPairsDelaysInfo.mapValues(delays -> new DelaysInfo(delays));
     }
-
-//    static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
-//        @Override
-//        public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
-//            int res = o1._1().compareTo(o2._1());
-//            if (res == 0) {
-//                res = o1._2().compareTo(o2._2());
-//            }
-//            return res;
-//        }
-//    }
 }
