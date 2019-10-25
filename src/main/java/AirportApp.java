@@ -53,7 +53,7 @@ public class AirportApp {
             if (res == 0) {
                 res = o1._2().compareTo(o2._2());
             }
-            System.out.println("COMPARE: " + o1 + " : " + o2 + " => " + res);
+//            System.out.println("COMPARE: " + o1 + " : " + o2 + " => " + res);
             return res;
         }
     }
