@@ -5,6 +5,7 @@ import org.apache.spark.api.java.JavaSparkContext;
 
 import java.util.Arrays;
 import java.util.List;
+import java.util.Map;
 
 public class AirportApp {
     public static void main(String[] args) {
@@ -14,7 +15,7 @@ public class AirportApp {
         JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
         JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airports);
-        Map<>
+        Map<String, String> 
 
         System.out.println();
         System.out.println();
