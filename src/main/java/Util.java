@@ -37,19 +37,19 @@ public abstract class Util {
         JavaPairRDD<Tuple2<String, String>, Iterable<String>> airportsPairsDelaysInfo = flightsWithoutHeader.mapToPair(line -> {
             String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
             return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
-        }).groupByKey().sortByKey(new TupleComparator());
+        }).groupByKey().sortByKey(new AirportsComparator());
 
         return airportsPairsDelaysInfo.mapValues(delays -> new DelaysInfo(delays));
     }
 
-    static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
-        @Override
-        public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
-            int res = o1._1().compareTo(o2._1());
-            if (res == 0) {
-                res = o1._2().compareTo(o2._2());
-            }
-            return res;
-        }
-    }
+//    static class TupleComparator implements Comparator<Tuple2<String, String>>, Serializable {
+//        @Override
+//        public int compare(Tuple2<String, String> o1, Tuple2<String, String> o2) {
+//            int res = o1._1().compareTo(o2._1());
+//            if (res == 0) {
+//                res = o1._2().compareTo(o2._2());
+//            }
+//            return res;
+//        }
+//    }
 }
