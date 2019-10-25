@@ -9,7 +9,7 @@ public class AirportsDelaysInfo implements Serializable {
 
     private DelaysInfo delays;
 
-    public AirportsDelaysInfo() {
+    public AirportsDelaysInfo(Tuple2<String, String>, DelaysInfo) {
 
     }
 }
