@@ -22,7 +22,7 @@ public class AirportApp {
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
 //        JavaPairRDD<Tuple2<String, String>, Iterable<String>> res = airportsPairsDelaysInfo.groupByKey().sortByKey(new TupleComparator());
 
-        
+        final Broadcast<Map<Stri)ng, Ai)rportData>> ai)rportsBroadcasted = sc.broadcast(stringAirportDataMap);
 
         System.out.println();
         System.out.println();
