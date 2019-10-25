@@ -5,22 +5,20 @@ public class DelaysInfo implements Serializable {
     private float maxDelay;
     private float delayAndCancelPercentage;
 
-    public float getMaxDelay() {
-        return maxDelay;
-    }
-
-    public float getDelayAndCancelPercentage() {
-        return delayAndCancelPercentage;
+    public DelaysInfo() {
+        maxDelay = 0f;
+        delayAndCancelPercentage = 0f;
     }
 
     public DelaysInfo(Iterable<String> delays) {
-        Iterator<String> it = delays.iterator();
         float max = Float.MIN_VALUE;
         float numOfFlights = 0f;
         float numOfDelaysAndCancels = 0f;
+
+        Iterator<String> it = delays.iterator();
         while (it.hasNext()) {
             numOfFlights++;
-            String nextDelay = it.next().toString();
+            String nextDelay = it.next();
             if (nextDelay.isEmpty()) {
                 numOfDelaysAndCancels++;
             } else {
@@ -34,6 +32,20 @@ public class DelaysInfo implements Serializable {
             }
         }
 
+        if (numOfDelaysAndCancels == 0f) {
+            new DelaysInfo();
+        } else {
+            maxDelay = max;
+            delayAndCancelPercentage = numOfDelaysAndCancels * 100f / numOfFlights;
+        }
+    }
+
+    public float getMaxDelay() {
+        return maxDelay;
+    }
+
+    public float getDelayAndCancelPercentage() {
+        return delayAndCancelPercentage;
     }
 
     @Override
