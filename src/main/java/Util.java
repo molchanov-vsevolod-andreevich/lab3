@@ -1,4 +1,5 @@
 import org.apache.spark.api.java.JavaRDD;
+import scala.Tuple2;
 
 public abstract class Util {
     public static final JavaRDD<String> parseCSVWithHeader(JavaRDD<String> csvFile) {
@@ -6,7 +7,7 @@ public abstract class Util {
         return csvFile.filter(line -> !line.equals(header));
     }
 
-    public static final Tuple2<> getAirportsPair(String s) {
-        
+    public static final Tuple2<String, String> getAirportsPair(String s) {
+
     }
 }
