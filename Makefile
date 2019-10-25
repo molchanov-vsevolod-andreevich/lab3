@@ -30,6 +30,7 @@ copy_files:
 start_project:
 	@echo "\n\n*****************STARTING THE PROJECT*****************\n\n"
 	spark-submit --class AirportApp --master yarn-client --num-executors 3 $(PROJECT)/target/spark-examples-1.0-SNAPSHOT.jar
+	hadoop fs -copyToLocal output $(PROJECT)
 
 restart_project: delete_output start_project
 
