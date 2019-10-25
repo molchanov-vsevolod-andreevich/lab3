@@ -12,7 +12,7 @@ public class DelaysInfo implements Serializable {
         return delayAndCancelPercentage;
     }
 
-    public DelaysInfo(String delaysInString) {
+    public DelaysInfo(Iterable<String> delaysInString) {
         
     }
 
