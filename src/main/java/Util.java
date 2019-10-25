@@ -17,14 +17,16 @@ public abstract class Util {
     public static final String[] parseCSVLineWithDelimiter(String line, String delimiter) {
         String[] records = line.split(delimiter);
         for (String record : records) {
-            record = record.replaceAll()
+            record = record.replaceAll("\"", "");
         }
+        return records;
     }
 
     public static final Map<String, String> parseAirports(JavaRDD<String> airportsCSV) {
         JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airportsCSV);
         JavaPairRDD<String, String> airportsPairs = airportsWithoutHeader.mapToPair(s -> {
             String[] records = Util.parseCSVLineWithDelimiter(s, Common.AIRPORTS_DELIMITER);
+            
         });
     }
 }
