@@ -12,10 +12,11 @@ public class AirportApp {
         SparkConf conf = new SparkConf().setAppName("lab3");
         JavaSparkContext sc = new JavaSparkContext(conf);
 
-        JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
+        JavaRDD<String> flightsCSV = sc.textFile("664600583_T_ONTIME_sample.csv");
         JavaRDD<String> airportsCSV = sc.textFile("L_AIRPORT_ID.csv");
 
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
+        
 
         System.out.println();
         System.out.println();
