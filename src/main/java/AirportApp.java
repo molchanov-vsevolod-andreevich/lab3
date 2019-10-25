@@ -33,7 +33,7 @@ public class AirportApp {
 //        Map<String, String> m = airportsPairsDelaysInfo.collectAsMap();
 //        airportsPairsDelaysInfo.foreach(v -> System.out.println(v._1() + " : " + v._2()));
         Map<Tuple2<String, String>, Iterable<String>> m = res.collectAsMap();
-//        m.forEach((k, v) -> System.out.println(k + " => " + v));
+        m.forEach((k, v) -> System.out.println(k + " => " + v));
 //        res.foreach(rdd -> {
 //            System.out.println(rdd);
 //        });
