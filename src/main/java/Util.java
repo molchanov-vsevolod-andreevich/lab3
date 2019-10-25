@@ -6,5 +6,5 @@ public abstract class Util {
         return csvFile.filter(line -> !line.equals(header));
     }
 
-    public static final 
+    public static final Tuple2<>
 }
