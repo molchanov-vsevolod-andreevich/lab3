@@ -13,9 +13,9 @@ public class AirportApp {
         JavaSparkContext sc = new JavaSparkContext(conf);
 
         JavaRDD<String> flights = sc.textFile("664600583_T_ONTIME_sample.csv");
-        JavaRDD<String> airports = sc.textFile("L_AIRPORT_ID.csv");
-        JavaRDD<String> airportsWithoutHeader = Util.removeHeader(airports);
-        Map<String, String> 
+        JavaRDD<String> airportsCSV = sc.textFile("L_AIRPORT_ID.csv");
+
+        Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
 
         System.out.println();
         System.out.println();
