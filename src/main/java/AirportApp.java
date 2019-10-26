@@ -19,7 +19,8 @@ public class AirportApp {
         Map<String, String> airportsCodesToNames = Util.parseAirports(airportsCSV);
 
         final Broadcast<Map<String, String>> airportsBroadcasted = sc.broadcast(airportsCodesToNames);
-        JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info -> new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
+        JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info ->
+                new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
 
         airportsDelaysInfo.saveAsTextFile("output");
     }
