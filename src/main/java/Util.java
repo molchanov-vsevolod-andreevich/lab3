@@ -5,8 +5,12 @@ import scala.Tuple2;
 import java.util.Map;
 
 public abstract class Util {
-    public static final JavaRDD<String> removeCSVHeader(JavaRDD<String> csvFile) {
-        String header = csvFile.first();
+//    public static final JavaRDD<String> removeCSVHeader(JavaRDD<String> csvFile) {
+//        String header = csvFile.first();
+//        return csvFile.filter(line -> !line.equals(header));
+//    }
+
+    public static final JavaRDD<String> removeCSVHeader(JavaRDD<String> csvFile, String header) {
         return csvFile.filter(line -> !line.equals(header));
     }
 
@@ -19,7 +23,7 @@ public abstract class Util {
     }
 
     public static final Map<String, String> parseAirports(JavaRDD<String> airportsCSV) {
-        JavaRDD<String> airportsWithoutHeader = Util.removeCSVHeader(airportsCSV);
+        JavaRDD<String> airportsWithoutHeader = Util.removeCSVHeader(airportsCSV, Common.AIRPORTS_HEADER);
 
         JavaPairRDD<String, String> airportsPairs = airportsWithoutHeader.mapToPair(line -> {
             String[] records = Util.parseCSVLineWithDelimiter(line, Common.AIRPORTS_DELIMITER);
@@ -30,7 +34,7 @@ public abstract class Util {
     }
 
     public static final JavaPairRDD<Tuple2<String, String>, DelaysInfo> parseFlights(JavaRDD<String> flightsCSV) {
-        JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV);
+        JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV, Common.FLIGHTS_HEADER);
 
         JavaPairRDD<Tuple2<String, String>, Iterable<String>> airportsPairsDelaysInfo = flightsWithoutHeader.mapToPair(line -> {
             String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
