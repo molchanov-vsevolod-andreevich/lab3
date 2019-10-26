@@ -5,11 +5,6 @@ import scala.Tuple2;
 import java.util.Map;
 
 public abstract class Util {
-//    public static final JavaRDD<String> removeCSVHeader(JavaRDD<String> csvFile) {
-//        String header = csvFile.first();
-//        return csvFile.filter(line -> !line.equals(header));
-//    }
-
     public static final JavaRDD<String> removeCSVHeader(JavaRDD<String> csvFile, String header) {
         return csvFile.filter(line -> !line.equals(header));
     }
