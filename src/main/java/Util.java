@@ -31,10 +31,13 @@ public abstract class Util {
     public static final JavaPairRDD<Tuple2<String, String>, DelaysInfo> parseFlights(JavaRDD<String> flightsCSV) {
         JavaRDD<String> flightsWithoutHeader = Util.removeCSVHeader(flightsCSV, Common.FLIGHTS_HEADER);
 
-        JavaPairRDD<Tuple2<String, String>, Iterable<String>> airportsPairsDelaysInfo = flightsWithoutHeader.mapToPair(line -> {
-            String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
-            return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
-        }).groupByKey().sortByKey(new AirportsComparator());
+        JavaPairRDD<Tuple2<String, String>, Iterable<String>> airportsPairsDelaysInfo = flightsWithoutHeader.
+                mapToPair(line -> {
+                    String[] records = Util.parseCSVLineWithDelimiter(line, Common.FLIGHTS_DELIMITER);
+                    return new Tuple2<>(new Tuple2<>(records[Common.CSV_ORIGIN_AIRPORT_ID_INDEX], records[Common.CSV_DEST_AIRPORT_ID_INDEX]), records[Common.CSV_DELAY_INDEX]);
+                })
+                .groupByKey()
+                .sortByKey(new AirportsComparator());
 
         return airportsPairsDelaysInfo.mapValues(delays -> new DelaysInfo(delays));
     }
