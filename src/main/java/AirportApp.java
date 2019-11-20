@@ -22,6 +22,6 @@ public class AirportApp {
         JavaRDD<AirportsDelaysInfo> airportsDelaysInfo = airportsPairsDelaysInfo.map(info ->
                 new AirportsDelaysInfo(info._1(), info._2(), airportsBroadcasted.value()));
 
-        airportsDelaysInfo.saveAsTextFile("output");
+        airportsDelaysInfo.saveAsTextFile("output")
     }
 }
